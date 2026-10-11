@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-ink-950 font-sans text-zinc-200 antialiased;
+  background-image:
+    radial-gradient(1200px 500px at 85% -10%, rgba(255, 121, 0, 0.07), transparent 60%),
+    radial-gradient(900px 400px at -10% 110%, rgba(255, 121, 0, 0.035), transparent 60%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(255, 121, 0, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2e2e39 transparent;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-800/80 shadow-panel;
+  }
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-panel backdrop-blur-xl;
+  }
+  .label-mono {
+    @apply font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500;
+  }
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-ink-950 shadow-glow hover:bg-accent-soft active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-zinc-200 hover:border-white/20 hover:bg-white/[0.07] active:scale-[0.98];
+  }
+  .btn-danger {
+    @apply btn border border-red-500/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 active:scale-[0.98];
+  }
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-ink-900 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-accent/60 focus:outline-none focus:ring-2 focus:ring-accent/20;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-zinc-400;
+  }
+}
